@@ -1,40 +1,106 @@
-import React from 'react';
-import { AuthProvider, useAuth } from './context/AuthContext';
-import AuthForm from './components/Auth/AuthForm';
-import Dashboard from './components/Dashboard/Dashboard';
-import InterestForm from './components/UserSegmentation/InterestForm';
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
+import HeroSection from './components/HeroSection';
+import AboutSection from './components/AboutSection';
+import ServicesSection from './components/ServicesSection';
+import PartsSection from './components/PartsSection';
+import TestimonialsSection from './components/TestimonialsSection';
+import ContactSection from './components/ContactSection';
+import Footer from './components/Footer';
 
-const AppContent: React.FC = () => {
-  const { user, isAuthenticated, loading } = useAuth();
+function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
-        <div className="backdrop-blur-md bg-white/10 rounded-3xl border border-white/20 p-8 text-center">
-          <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-white">Loading...</p>
-        </div>
-      </div>
-    );
-  }
+  useEffect(() => {
+    // Add scroll animation styles to document head
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-  if (!isAuthenticated) {
-    return <AuthForm />;
-  }
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
 
-  if (user && !user.hasCompletedSegmentation) {
-    return <InterestForm />;
-  }
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
 
-  return <Dashboard />;
-};
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-const App: React.FC = () => {
+      .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .animate-slide-in-left {
+        animation: slideInLeft 1s ease-out;
+      }
+
+      .animate-slide-in-right {
+        animation: slideInRight 1s ease-out;
+      }
+
+      .animate-slide-in-up {
+        animation: slideInUp 0.8s ease-out;
+        animation-fill-mode: both;
+      }
+
+      /* Smooth scrolling for the whole document */
+      html {
+        scroll-behavior: smooth;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Cleanup
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
+    <div className="min-h-screen bg-white">
+      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <PartsSection />
+      <TestimonialsSection />
+      <ContactSection />
+      <Footer />
+    </div>
   );
-};
+}
 
 export default App;
