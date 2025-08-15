@@ -59,7 +59,7 @@ const InterestForm: React.FC = () => {
   ];
 
   const handleOptionSelect = (option: string) => {
-    const question = questions[currentStep];
+    const question = questions[currentStep]; 
     const key = question.key;
 
     if (question.type === "multiple") {

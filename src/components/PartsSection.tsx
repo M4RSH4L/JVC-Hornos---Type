@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
-import { Search, Filter, Package } from 'lucide-react';
+import { Search, Package } from 'lucide-react';
+
 
 const PartsSection: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('todos');
   const [searchTerm, setSearchTerm] = useState('');
 
   const categories = [
-    { id: 'todos', name: 'Todos los productos', count: 24 },
-    { id: 'resistencias', name: 'Resistencias', count: 8 },
-    { id: 'termostatos', name: 'Termostatos', count: 6 },
-    { id: 'ventiladores', name: 'Ventiladores', count: 5 },
-    { id: 'accesorios', name: 'Accesorios', count: 5 }
+    { id: 'todos', name: 'Todos los productos', count: 6 },
+    { id: 'Mesas', name: 'Mesas', count: 2 },
+    { id: 'Campanas', name: 'Campanas', count: 2 },
+    { id: 'Carros', name: 'Carros', count: 2 },
+    { id: 'accesorios', name: 'Parrillas', count: 2 }
   ];
 
   const products = [
-    { id: 1, name: 'Resistencia superior 2000W', brand: 'Whirlpool', category: 'resistencias', price: '$15,500', image: 'https://images.pexels.com/photos/7005591/pexels-photo-7005591.jpeg?auto=compress&cs=tinysrgb&w=300' },
-    { id: 2, name: 'Termostato regulable', brand: 'Bosch', category: 'termostatos', price: '$22,300', image: 'https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=300' },
-    { id: 3, name: 'Ventilador tangencial', brand: 'Siemens', category: 'ventiladores', price: '$18,900', image: 'https://images.pexels.com/photos/7005506/pexels-photo-7005506.jpeg?auto=compress&cs=tinysrgb&w=300' },
-    { id: 4, name: 'Parrilla extensible', brand: 'Universal', category: 'accesorios', price: '$8,750', image: 'https://images.pexels.com/photos/7005648/pexels-photo-7005648.jpeg?auto=compress&cs=tinysrgb&w=300' },
-    { id: 5, name: 'Resistencia inferior 1500W', brand: 'LG', category: 'resistencias', price: '$13,200', image: 'https://images.pexels.com/photos/7005591/pexels-photo-7005591.jpeg?auto=compress&cs=tinysrgb&w=300' },
-    { id: 6, name: 'Sensor de temperatura', brand: 'Samsung', category: 'termostatos', price: '$19,500', image: 'https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=300' }
+    { id: 1, name: 'Mesa  UG II P/ Mod. XS 6-2/3 8', brand: 'Rational', category: 'Mesas', price: '$15,500', image:'https://i.postimg.cc/d1BCNF6M/mesa-ugi.jpg' },
+    { id: 2, name: 'Campanas y Extractora de Vapores', brand: 'Rational', category: 'Campanas', price: '$22,300', image: 'https://i.postimg.cc/wMDj4Qg1/camapana-extractor.jpg' },
+    { id: 3, name: 'Carros Gastronomicos', brand: 'Siemens', category: 'Carros', price: '$18,900', image: 'https://i.postimg.cc/7YCVhCXf/carro.jpg' },
+    { id: 4, name: 'Parrilla', brand: 'Rational', category: 'Parrilla', price: '$8,750', image: 'https://i.postimg.cc/xc1HS41x/bandeja.jpg' },
+    { id: 5, name: 'Bandejas', brand: 'Rational', category: 'Parrilla', price: '$13,200', image: 'https://i.postimg.cc/PPVDfQLt/bandejas.jpg' },
+    { id: 6, name: 'Lavavajillas', brand: 'Winterhalter Serie U50', category: 'Lavavajillas', price: '$19,500', image: 'https://i.postimg.cc/0N6MdmMw/lavavajillas.jpg' }
   ];
 
   const filteredProducts = products.filter(product => {
@@ -39,7 +40,7 @@ const PartsSection: React.FC = () => {
           <div className="w-24 h-1 bg-orange-500 mx-auto mb-8"></div>
           <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
             Disponemos de un amplio stock de repuestos y accesorios originales para diversas marcas de hornos. 
-            Desde resistencias hasta termostatos, tenemos todo lo que necesitas para mantener tu equipo en perfecto estado.
+            Desde Mesas hasta Campanas, tenemos todo lo que necesitas para mantener tu equipo en perfecto estado.
           </p>
         </div>
 
@@ -89,7 +90,7 @@ const PartsSection: React.FC = () => {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-auto object-contain group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute top-4 right-4">

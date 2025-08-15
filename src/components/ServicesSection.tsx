@@ -83,14 +83,17 @@ const ServicesSection: React.FC = () => {
                 </ul>
 
                 {/* CTA Button */}
-                <button className={`flex items-center gap-2 text-sm font-semibold transition-all duration-300 ${
-                  hoveredService === index 
-                    ? 'text-orange-600 translate-x-2' 
-                    : 'text-blue-600'
-                }`}>
-                  Saber más
-                  <ArrowRight size={16} className="transition-transform duration-300" />
-                </button>
+               <button
+  onClick={() => window.open('https://wa.link/a2bxo6', '_blank')}
+  className={`flex items-center gap-2 text-sm font-semibold transition-all duration-300 ${
+    hoveredService === index 
+      ? 'text-orange-600 translate-x-2' 
+      : 'text-blue-600'
+  }`}
+>
+  Saber más
+  <ArrowRight size={16} className="transition-transform duration-300" />
+</button>
               </div>
             </div>
           ))}
