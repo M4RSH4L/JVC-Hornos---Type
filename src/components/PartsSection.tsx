@@ -15,12 +15,12 @@ const PartsSection: React.FC = () => {
   ];
 
   const products = [
-    { id: 1, name: 'Mesa  UG II P/ Mod. XS 6-2/3 8', brand: 'Rational', category: 'Mesas', price: '$15,500', image:'https://i.postimg.cc/d1BCNF6M/mesa-ugi.jpg' },
-    { id: 2, name: 'Campanas y Extractora de Vapores', brand: 'Rational', category: 'Campanas', price: '$22,300', image: 'https://i.postimg.cc/wMDj4Qg1/camapana-extractor.jpg' },
-    { id: 3, name: 'Carros Gastronomicos', brand: 'Siemens', category: 'Carros', price: '$18,900', image: 'https://i.postimg.cc/7YCVhCXf/carro.jpg' },
-    { id: 4, name: 'Parrilla', brand: 'Rational', category: 'Parrilla', price: '$8,750', image: 'https://i.postimg.cc/xc1HS41x/bandeja.jpg' },
-    { id: 5, name: 'Bandejas', brand: 'Rational', category: 'Parrilla', price: '$13,200', image: 'https://i.postimg.cc/PPVDfQLt/bandejas.jpg' },
-    { id: 6, name: 'Lavavajillas', brand: 'Winterhalter Serie U50', category: 'Lavavajillas', price: '$19,500', image: 'https://i.postimg.cc/0N6MdmMw/lavavajillas.jpg' }
+    { id: 1, name: 'Mesa  UG II P/ Mod. XS 6-2/3 8', brand: 'Rational', category: 'Mesas', price: '', image:'https://i.postimg.cc/d1BCNF6M/mesa-ugi.jpg' },
+    { id: 2, name: 'Campanas y Extractora de Vapores', brand: 'Rational', category: 'Campanas', price: '', image: 'https://i.postimg.cc/wMDj4Qg1/camapana-extractor.jpg' },
+    { id: 3, name: 'Carros Gastronomicos', brand: 'Rational', category: 'Carros', price: '', image: 'https://i.postimg.cc/7YCVhCXf/carro.jpg' },
+    { id: 4, name: 'Parrilla', brand: 'Rational', category: 'Parrilla', price: '', image: 'https://i.postimg.cc/xc1HS41x/bandeja.jpg' },
+    { id: 5, name: 'Bandejas', brand: 'Rational', category: 'Parrilla', price: '', image: 'https://i.postimg.cc/PPVDfQLt/bandejas.jpg' },
+    { id: 6, name: 'Lavavajillas', brand: 'Winterhalter Serie U50', category: 'Lavavajillas', price: '', image: 'https://i.postimg.cc/0N6MdmMw/lavavajillas.jpg' }
   ];
 
   const filteredProducts = products.filter(product => {
@@ -111,7 +111,8 @@ const PartsSection: React.FC = () => {
                     <span className="text-xs">En stock</span>
                   </div>
                 </div>
-                <button className="w-full bg-blue-900 hover:bg-blue-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 group-hover:bg-orange-500">
+                <button  onClick={() => window.open('https://wa.link/a2bxo6', '_blank')} 
+                className="w-full bg-blue-900 hover:bg-blue-800 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 group-hover:bg-orange-500">
                   Consultar disponibilidad
                 </button>
               </div>

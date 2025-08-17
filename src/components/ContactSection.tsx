@@ -78,7 +78,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-slate-900 mb-1">Dirección</h4>
-                    <p className="text-slate-600">Calle Ficticia 123</p>
+                    <p className="text-slate-600"></p>
                     <p className="text-slate-600">La Plata, Buenos Aires, Argentina</p>
                   </div>
                 </div>

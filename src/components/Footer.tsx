@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-3 text-slate-300">
                 <MapPin size={18} className="text-orange-400" />
-                <span>Calle Ficticia 123, La Plata, Buenos Aires</span>
+                <span> La Plata, Buenos Aires</span>
               </div>
             </div>
           </div>
