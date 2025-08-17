@@ -60,8 +60,8 @@ const BrandsSection: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Calcular el número total de páginas basado en slidesToShow
-  const totalPages = Math.ceil(brands.length / slidesToShow);
+  // Calcular el número total de páginas basado en slidesToShow y marcas duplicadas
+  const totalPages = Math.ceil(duplicatedBrands.length / slidesToShow);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -95,19 +95,19 @@ const BrandsSection: React.FC = () => {
 
         {/* Carrusel */}
         <div className="relative overflow-hidden">
-          <div 
-            className="flex transition-transform duration-1000 ease-in-out"
-            style={{
-              transform: `translateX(-${currentIndex * (100 / slidesToShow)}%)`,
-              width: `${duplicatedBrands.length * (100 / slidesToShow)}%`
-            }}
-          >
-            {duplicatedBrands.map((brand, index) => (
-              <div
-                key={`${brand.name}-${index}`}
-                className="flex-shrink-0 px-2 sm:px-3 lg:px-4"
-                style={{ width: `${100 / duplicatedBrands.length}%` }}
-              >
+         <div 
+  className="flex transition-transform duration-1000 ease-in-out"
+  style={{
+    transform: `translateX(-${currentIndex * 100}%)`
+  }}
+>
+  {duplicatedBrands.map((brand, index) => (
+    <div
+      key={`${brand.name}-${index}`}
+      className="flex-shrink-0 px-2 sm:px-3 lg:px-4"
+      style={{ width: `${100 / slidesToShow}%` }}
+    >
+
                 <div className="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 p-4 sm:p-6 border border-slate-100">
                   <div className="flex items-center justify-center h-16 sm:h-20">
                     <img
